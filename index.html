@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sylhety Hack Venger // Cyber Command Hub</title>
+<style>
+:root{color-scheme:dark;--bg:#04060d;--c1:#00f0ff;--c2:#ff2bd6;--c3:#7CFF6B;--tx:#cfe9ff;--mut:#6f89a8;--card:rgba(10,18,34,.72);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--tx);font-family:"Courier New",ui-monospace,Menlo,monospace;overflow-x:hidden;min-height:100vh}
+#fx{position:fixed;inset:0;z-index:0;opacity:.55}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+body::before{content:"";position:fixed;left:0;right:0;height:120px;z-index:1;pointer-events:none;background:linear-gradient(transparent,rgba(0,240,255,.08),transparent);animation:sweep 6s linear infinite}
+@keyframes sweep{from{top:-120px}to{top:100%}}
+main{position:relative;z-index:2;max-width:1100px;margin:auto;padding:16px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--mut);border:1px solid rgba(0,240,255,.25);padding:8px 12px;border-radius:8px;background:var(--card);backdrop-filter:blur(6px)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c3);box-shadow:0 0 10px var(--c3);animation:pulse 1.2s infinite;margin-right:6px}
+@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+header{text-align:center;padding:42px 0 22px}
+.tag{color:var(--c1);letter-spacing:.35em;font-size:11px}
+h1{font-size:clamp(28px,8vw,64px);line-height:1.05;margin:12px 0;font-weight:900;letter-spacing:.04em;position:relative;color:#fff;text-shadow:0 0 18px var(--c1)}
+h1::before,h1::after{content:attr(data-t);position:absolute;left:0;right:0;top:0}
+h1::before{color:var(--c2);animation:gl1 3s infinite steps(1);mix-blend-mode:screen}
+h1::after{color:var(--c1);animation:gl2 3s infinite steps(1);mix-blend-mode:screen}
+@keyframes gl1{0%,90%,100%{transform:none;clip-path:inset(0 0 100% 0)}92%{transform:translate(-4px,1px);clip-path:inset(20% 0 55% 0)}96%{transform:translate(3px,-1px);clip-path:inset(60% 0 10% 0)}}
+@keyframes gl2{0%,88%,100%{transform:none;clip-path:inset(0 0 100% 0)}90%{transform:translate(4px,0);clip-path:inset(40% 0 30% 0)}95%{transform:translate(-3px,1px);clip-path:inset(5% 0 75% 0)}}
+.term{display:inline-block;min-height:24px;color:var(--c3);font-size:14px}
+.term::after{content:"█";animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}
+.stat{border:1px solid rgba(0,240,255,.25);background:var(--card);border-radius:10px;padding:12px;text-align:center}
+.stat b{display:block;font-size:26px;color:var(--c1);text-shadow:0 0 10px var(--c1)}
+.stat span{font-size:11px;color:var(--mut)}
+h2{font-size:14px;letter-spacing:.3em;color:var(--c2);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--c2),transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{position:relative;display:block;text-decoration:none;color:inherit;border:1px solid var(--cc);border-radius:14px;padding:18px;background:var(--card);backdrop-filter:blur(8px);overflow:hidden;animation:float 5s ease-in-out infinite;animation-delay:var(--d,0s);transition:transform .25s,box-shadow .25s;--cc:rgba(0,240,255,.35)}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 0 28px var(--cc);animation-play-state:paused}
+@keyframes float{50%{transform:translateY(-8px)}}
+.card::before{content:"";position:absolute;inset:-60% auto -60% -40%;width:30%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:skewX(-20deg);animation:shine 4s infinite}
+@keyframes shine{to{left:140%}}
+.ic{font-size:30px}
+.card h3{margin:8px 0 4px;font-size:18px;color:#fff}
+.card p{font-size:12px;color:var(--mut);line-height:1.5}
+.live{position:absolute;top:12px;right:12px;font-size:10px;color:#04060d;background:var(--c3);padding:2px 7px;border-radius:99px;font-weight:700;animation:pulse 1.5s infinite}
+.cta{display:inline-block;margin-top:12px;font-size:12px;color:var(--cc);border:1px solid var(--cc);padding:5px 10px;border-radius:6px}
+.scan{margin-top:10px;font-size:11px;color:var(--c3)}
+.bargrow{height:3px;background:rgba(255,255,255,.08);margin-top:6px;border-radius:2px;overflow:hidden}
+.bargrow i{display:block;height:100%;width:30%;background:var(--cc);box-shadow:0 0 8px var(--cc);animation:load 2.4s linear infinite}
+@keyframes load{from{margin-left:-30%}to{margin-left:100%}}
+.feed{display:grid;gap:10px}
+.post{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;border:1px solid rgba(255,43,214,.3);background:var(--card);border-radius:10px;padding:12px 14px;transition:.25s;animation:slide .6s both}
+.post:hover{border-color:var(--c1);transform:translateX(6px);box-shadow:-4px 0 0 var(--c1)}
+@keyframes slide{from{opacity:0;transform:translateX(-30px)}}
+.pt{font-size:11px;padding:3px 8px;border-radius:5px;background:rgba(0,240,255,.12);color:var(--c1);white-space:nowrap}
+.post b{flex:1;font-size:14px}
+.post small{color:var(--mut);white-space:nowrap}
+.new{background:var(--c2);color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;animation:pulse 1s infinite}
+.alert{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:5;background:#08121f;border:1px solid var(--c2);color:#fff;padding:12px 16px;border-radius:10px;font-size:13px;box-shadow:0 0 22px var(--c2);text-decoration:none;transition:transform .5s;max-width:92vw;text-align:center}
+.alert.on{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--mut);font-size:11px;padding:30px 0 20px}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<main>
+  <div class="bar"><span><i class="dot"></i>UPLINK ACTIVE</span><span id="clock">--:--:--</span><span id="mon">MONITOR: INIT…</span></div>
+
+  <header>
+    <div class="tag">// CYBERSECURITY INTEL NODE //</div>
+    <h1 data-t="SYLHETY HACK VENGER">SYLHETY HACK VENGER</h1>
+    <div class="term" id="term"></div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b id="s1">0</b><span>CHANNELS MONITORED</span></div>
+    <div class="stat"><b id="s2">0</b><span>SCANS COMPLETED</span></div>
+    <div class="stat"><b id="s3">0</b><span>THREAT INTEL FEEDS</span></div>
+    <div class="stat"><b id="s4">0%</b><span>SYSTEM INTEGRITY</span></div>
+  </div>
+
+  <h2>CONTENT CHANNELS</h2>
+  <div class="grid" id="chan"></div>
+
+  <h2>LIVE ARTICLE FEED // TRICKBD</h2>
+  <div class="feed" id="feed"></div>
+
+  <footer>© SYLHETY HACK VENGER · ETHICAL HACKING · EDUCATION ONLY · STAY SECURE</footer>
+</main>
+<a class="alert" id="alert" href="#" target="_blank" rel="noopener"></a>
+
+<script>
+/* ===== EDIT ME ===== */
+const CHANNELS=[
+ {n:"YouTube",i:"▶",c:"#ff3b3b",u:"https://youtube.com/@sylhetyhackvenger",d:"Hacking tutorials, tool demos and security walkthroughs.",a:"WATCH LATEST VIDEO"},
+ {n:"Instagram",i:"◎",c:"#ff2bd6",u:"https://www.instagram.com/shv808_",d:"Reels, cyber tips and quick security drops.",a:"VIEW REELS"},
+ {n:"Facebook",i:"f",c:"#4aa3ff",u:"https://www.facebook.com/sylhetyhackvenger",d:"Community posts, updates and live announcements.",a:"OPEN PAGE"},
+ {n:"TrickBD Articles",i:"✎",c:"#7CFF6B",u:"https://trickbd.com/author/sylhetyhackvenger/",d:"Every written article and tutorial in one place.",a:"READ ARTICLES"}
+];
+const AUTHOR="https://trickbd.com/author/sylhetyhackvenger/";
+/* Fallback shown when live fetch is blocked. Replace with real titles/links. */
+let FEED=[
+ {t:"Open the latest article on TrickBD",u:AUTHOR,d:"Live"},
+ {t:"New video drops on YouTube",u:"https://youtube.com/@sylhetyhackvenger",d:"Watch"},
+ {t:"Fresh reels on Instagram",u:"https://www.instagram.com/shv808_",d:"Reels"},
+ {t:"Community updates on Facebook",u:"https://www.facebook.com/sylhetyhackvenger",d:"Post"}
+];
+/* ==================== */
+const $=id=>document.getElementById(id);
+
+/* Matrix rain + drifting nodes */
+const cv=$("fx"),cx=cv.getContext("2d");let W,H,cols,drops;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;cols=Math.floor(W/16);drops=Array(cols).fill(0).map(()=>Math.random()*H/16)}
+rs();addEventListener("resize",rs);
+const glyph="01ABCDEF<>{}[]#$%&@アイウエオ";
+const nodes=Array.from({length:38},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
+function draw(){
+ cx.fillStyle="rgba(4,6,13,.14)";cx.fillRect(0,0,W,H);
+ cx.font="14px monospace";
+ for(let i=0;i<cols;i++){
+  cx.fillStyle=Math.random()>.97?"#fff":"rgba(0,240,255,.55)";
+  cx.fillText(glyph[Math.floor(Math.random()*glyph.length)],i*16,drops[i]*16);
+  if(drops[i]*16>H&&Math.random()>.975)drops[i]=0;drops[i]++;
+ }
+ nodes.forEach((a,i)=>{a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+  cx.fillStyle="#ff2bd6";cx.fillRect(a.x,a.y,2,2);
+  for(let j=i+1;j<nodes.length;j++){const b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+   if(d<120){cx.strokeStyle="rgba(255,43,214,"+(1-d/120)*.5+")";cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}});
+ requestAnimationFrame(draw)}
+draw();
+
+/* Clock */
+setInterval(()=>{$("clock").textContent=new Date().toLocaleTimeString("en-GB")},1000);
+
+/* Typewriter */
+const lines=["> initializing cyber command hub…","> scanning YouTube · Instagram · Facebook · TrickBD…","> ethical hacking · pentesting · security awareness","> monitoring for new uploads — stay tuned."];
+let li=0,ci=0,del=false;
+(function type(){const l=lines[li];$("term").textContent=l.slice(0,ci);
+ if(!del&&ci<l.length){ci++;setTimeout(type,45)}
+ else if(!del){del=true;setTimeout(type,1400)}
+ else if(ci>0){ci--;setTimeout(type,18)}
+ else{del=false;li=(li+1)%lines.length;setTimeout(type,300)}})();
+
+/* Counters */
+function count(id,to,suf=""){let n=0;const t=setInterval(()=>{n+=Math.ceil((to-n)/8);$(id).textContent=n+suf;if(n>=to)clearInterval(t)},60)}
+count("s1",CHANNELS.length);count("s3",4);count("s4",100,"%");
+let scans=0;setInterval(()=>{scans++;$("s2").textContent=scans},1000);
+
+/* Channel cards */
+const states=["SCANNING…","HANDSHAKE OK","CHECKING NEW UPLOADS…","SYNCED","LISTENING…"];
+CHANNELS.forEach((c,k)=>{
+ const a=document.createElement("a");a.className="card";a.href=c.u;a.target="_blank";a.rel="noopener";
+ a.style.setProperty("--cc",c.c);a.style.setProperty("--d",k*.5+"s");
+ a.innerHTML=`<span class="live">LIVE</span><div class="ic" style="color:${c.c}">${c.i}</div><h3>${c.n}</h3><p>${c.d}</p><div class="scan" id="sc${k}">SCANNING…</div><div class="bargrow"><i></i></div><span class="cta">${c.a} →</span>`;
+ $("chan").appendChild(a);
+ a.addEventListener("pointermove",e=>{const r=a.getBoundingClientRect();a.style.transform=`perspective(600px) rotateY(${((e.clientX-r.left)/r.width-.5)*10}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*10}deg) translateY(-6px)`});
+ a.addEventListener("pointerleave",()=>a.style.transform="");
+});
+setInterval(()=>{CHANNELS.forEach((c,k)=>{$("sc"+k).textContent="› "+states[Math.floor(Math.random()*states.length)]});
+ $("mon").textContent="MONITOR: "+CHANNELS[Math.floor(Math.random()*CHANNELS.length)].n.toUpperCase()+" ✓"},2200);
+
+/* Feed */
+let seen=new Set();
+function render(items,announce){
+ const f=$("feed");f.innerHTML="";
+ items.slice(0,10).forEach((p,i)=>{
+  const isNew=!seen.has(p.u+p.t);
+  const a=document.createElement("a");a.className="post";a.href=p.u;a.target="_blank";a.rel="noopener";a.style.animationDelay=i*.08+"s";
+  a.innerHTML=`<span class="pt">ARTICLE</span><b>${p.t.replace(/</g,"&lt;")}</b>${announce&&isNew?'<span class="new">NEW</span>':""}<small>${p.d||""}</small>`;
+  f.appendChild(a);
+  if(announce&&isNew&&seen.size)toast(p);
+ });
+ items.forEach(p=>seen.add(p.u+p.t));
+}
+function toast(p){const t=$("alert");t.href=p.u;t.textContent="⚡ NEW POST DETECTED — tap to read: "+p.t;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),9000)}
+
+/* Live fetch: works when hosted on your own site; blocked inside previews */
+async function pull(first){
+ try{
+  const r=await fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(AUTHOR+"feed/"));
+  const j=await r.json();
+  if(j.items&&j.items.length){render(j.items.map(x=>({t:x.title,u:x.link,d:(x.pubDate||"").slice(0,10)})),true);return}
+ }catch(e){}
+ if(first)render(FEED,false);
+}
+pull(true);setInterval(()=>pull(false),120000);
+</script>
+</body>
+</html>
